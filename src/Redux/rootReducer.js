@@ -7,6 +7,7 @@ const initialState = {
 const ADDEXPENSE = 'ADDEXPENSE'
 const REMOVE_EXPENSE = 'REMOVE_EXPENSE'
 const EDIT_EXPENSE = 'EDIT_EXPENSE'
+const CLEAR_EXPENSE = 'CLEAR_EXPENSE'
 
 
 //-------------------action creators--------------------------------
@@ -28,6 +29,12 @@ export const editExpense = (expense) => {
     return {
         type: EDIT_EXPENSE,
         payload: expense
+    }
+}
+
+export const clearExpense = () => {
+    return {
+        type: CLEAR_EXPENSE,
     }
 }
 
@@ -67,6 +74,12 @@ const rootReducer = (state = initialState, action) => {
             } catch (error) {
                 console.error('Error in EDIT_EXPENSE:', error);
                 return state;
+            }
+        case CLEAR_EXPENSE:
+            return {
+                ...state,
+                expense: [],
+                totalExpense: 0
             }
         default:
             return state;

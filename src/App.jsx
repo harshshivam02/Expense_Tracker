@@ -3,6 +3,7 @@ import ExpenseHistory from './ExpenseHistory';
 import './App.css'
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
+import { clearExpense } from './Redux/rootReducer';
 
 import { useEffect, useState } from 'react';
 
@@ -177,8 +178,11 @@ function App() {
 
       </div>
       {showexpense && <Addexpense onClose={handleClose} expenseToEdit={expenseToEdit} />}
-      <div className='mt-10 md:mt-20'> 
+      <div className='mt-10 md:mt-20'>
+      <div className='flex justify-between gap-4 w-9/12 mx-auto'>
       <h2 className='text-2xl font-bold text-center mb-6'>Expense History</h2>
+      <button className='bg-white text-black p-2 rounded-md hover:bg-gray-400 transition-all duration-300 h-10' onClick={() => dispatch(clearExpense())}>Clear Expense</button>
+      </div>
       {expense.length === 0 ? (
         <p className='text-center text-lg font-semibold'>No expenses added yet.</p>
       ) : (

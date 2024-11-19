@@ -109,6 +109,7 @@ function Addexpense({ onClose, expenseToEdit = null }) {
             Expense Name:
             <input
               type="text"
+              required
               name="expenseName"
               value={formData.expenseName}
               onChange={(e) => setFormData({...formData, expenseName: e.target.value})}
@@ -119,7 +120,8 @@ function Addexpense({ onClose, expenseToEdit = null }) {
           <label className="flex flex-col text-white">
             Expense Amount:
             <input
-              type="text"
+              type="number"
+              required
               name="expenseAmount"
               value={formData.expenseAmount}
               onChange={(e) => setFormData({...formData, expenseAmount: e.target.value})}
